@@ -1,0 +1,120 @@
+# ==========================================================
+# MDVQuest 1.4.5 - ENCARGADO/NPC PARA BEDROCK
+#
+# Form nativo que reemplaza SOLO para Bedrock el inventario
+# abierto mediante /mdvquest npc [jugador].
+# Permite aceptar, entregar, reclamar y cancelar contratos.
+# Java conserva el menú original.
+# ==========================================================
+
+type: "DYNAMIC_QUEST_NPC"
+back-command: "social"
+
+states:
+  available: "&fDisponible"
+  accepted: "&eEn progreso"
+  completed: "&aCompletada"
+  claimed: "&8Reclamada"
+  locked: "&cBloqueada"
+
+category:
+  title: "&8&lEncargado de Misiones"
+  content:
+    - "&7Acepta contratos, entrega objetos"
+    - "&7y reclama recompensas completadas."
+    - ""
+    - "&8Selecciona una duración."
+
+  categories:
+    one-day:
+      text: "&e&lMisiones diarias\n&r&7Contratos: &f{accepted}/{limit} &8• &7Disponibles: &f{total}"
+    two-three-days:
+      text: "&6&lMisiones de 2 a 3 días\n&r&7Contratos: &f{accepted}/{limit} &8• &7Disponibles: &f{total}"
+    four-six-days:
+      text: "&2&lMisiones de 4 a 6 días\n&r&7Contratos: &f{accepted}/{limit} &8• &7Disponibles: &f{total}"
+    seven-days:
+      text: "&9&lMisiones semanales\n&r&7Contratos: &f{accepted}/{limit} &8• &7Disponibles: &f{total}"
+
+  back:
+    text: "&6&lVolver\n&r&8Regresa al menú social."
+
+mission-list:
+  title: "&8&l{category}"
+  page-size: 6
+  mobile-page-size: 5
+  content:
+    - "&7Contratos activos: &f{accepted}/{limit}"
+    - "&7Página: &f{page}/{pages}"
+    - ""
+    - "&8Selecciona una misión para gestionarla."
+  empty: "&7No hay misiones activas en esta categoría."
+
+  mission:
+    available: "&f&l{mission}\n&r&eDisponible para aceptar &8• &7{remaining}"
+    accepted: "&e&l{mission}\n&r&7Progreso: &f{objectives_done}/{objectives_total} &8• &7{remaining}"
+    completed: "&a&l{mission}\n&r&aCompletada &8• &fToca para reclamar"
+    claimed: "&8&l{mission}\n&r&7Recompensa ya reclamada"
+    locked: "&b&l{mission}\n&r&cRequiere {rank}"
+
+  previous:
+    text: "&ePágina anterior"
+  next:
+    text: "&aPágina siguiente"
+  back:
+    text: "&6Volver a categorías"
+
+detail:
+  title: "&8&l{mission_plain}"
+  no-description: "&8Sin descripción adicional."
+  content:
+    - "&7Estado: {state}"
+    - "&7Contratos: &f{accepted}/{limit}"
+    - "&7Expira en: &f{remaining}"
+    - ""
+    - "&e&l● Descripción"
+    - "{description}"
+    - ""
+    - "&e&l● Objetivos"
+    - "{objectives}"
+    - ""
+    - "&a&l● Recompensas"
+    - "{rewards}"
+
+  objectives:
+    complete-icon: "&a✔"
+    pending-icon: "&7•"
+    complete-format: "{icon} &f{objective} &7(&a{progress}&7/{required})"
+    pending-format: "{icon} &f{objective} &7({progress}/{required})"
+    delivery-format: "{icon} &f{objective} &7({progress}/{required}) &6[Entrega]"
+    empty: "&7Sin objetivos."
+
+  rewards:
+    experience-format: "&7• &b{amount} EXP &f{target}"
+    vanilla-format: "&7• &f{amount}x {item}"
+    mmoitem-format: "&7• &d{amount}x {item}"
+    mythic-item-format: "&7• &5{amount}x {item}"
+    exact-item-format: "&7• &f{amount}x {item}"
+    empty: "&7• Sin recompensa configurada"
+
+  actions:
+    accept:
+      text: "&a&lAceptar contrato\n&r&7Añadirlo a tus contratos activos."
+    deliver-all:
+      text: "&6&lEntregar objetos\n&r&7Entrega todo lo que tengas disponible."
+    claim:
+      text: "&a&lReclamar recompensa\n&r&7Recibe las recompensas del contrato."
+    cancel:
+      text: "&c&lCancelar contrato\n&r&7Perderás el progreso realizado."
+    back:
+      text: "&6&lVolver\n&r&8Regresa a la lista de misiones."
+
+cancel-confirm:
+  title: "&c&lCancelar contrato"
+  content:
+    - "&7¿Seguro que quieres cancelar &f{mission}&7?"
+    - ""
+    - "&cPerderás todo el progreso de este contrato."
+  confirm:
+    text: "&c&lSí, cancelar contrato"
+  back:
+    text: "&6Volver"

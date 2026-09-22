@@ -1,5 +1,5 @@
 name: MDVQuest
-version: 1.4.4
+version: 1.4.5
 main: com.mdvcraft.mdvquest.MDVQuestPlugin
 api-version: '1.21'
 author: MDVCRAFT
@@ -13,6 +13,7 @@ softdepend:
   - MythicMobs
   - PlaceholderAPI
   - MDVClans
+  - floodgate
 commands:
   mdvquest:
     description: Abre y administra las misiones rotativas.

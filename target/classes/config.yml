@@ -127,6 +127,18 @@ acceptance:
     four-six-days: 1
     seven-days: 1
 
+# ==========================================================
+# BEDROCK / FLOODGATE
+# Solo cambia la presentación para jugadores Bedrock.
+# Java sigue usando exactamente los inventarios normales.
+# Los textos visuales viven en plugins/MDVQuest/MenusBedrock/.
+# ==========================================================
+bedrock:
+  enabled: true
+  page-size: 6
+  mobile-page-size: 5
+  navigation-delay-ticks: 1
+
 menus:
   # Puede ser URL directa de textures.minecraft.net o Value Base64 de Minecraft-Heads.
   back-head-texture: ""
