@@ -7,13 +7,11 @@ import com.mdvcraft.mdvquest.service.PlacedBlockService;
 import com.mdvcraft.mdvquest.service.ProgressService;
 import com.mdvcraft.mdvquest.util.BlockPosition;
 import org.bukkit.Bukkit;
-import org.bukkit.Keyed;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Ageable;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
@@ -29,16 +27,13 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
-import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Recipe;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.Tag;
@@ -208,36 +203,6 @@ public final class GameplayListener implements Listener {
             }
         }
         return false;
-    }
-
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
-    public void onVanillaCraft(CraftItemEvent event) {
-        HumanEntity clicker = event.getWhoClicked();
-        if (!(clicker instanceof Player player))
-            return;
-        Recipe recipe = event.getRecipe();
-        if (recipe instanceof Keyed keyed && keyed.getKey().getNamespace().equalsIgnoreCase("mdvrecetas"))
-            return;
-        ItemStack result = recipe == null ? null : recipe.getResult();
-        if (result == null || result.getType().isAir())
-            return;
-        int operations = estimateCraftOperations(event);
-        long produced = (long) Math.max(1, result.getAmount()) * operations;
-        progress.report(player, ObjectiveType.CRAFT_VANILLA_ITEM, result.getType().name(), produced,
-                Map.of("craft-operations", String.valueOf(operations)));
-    }
-
-    private int estimateCraftOperations(CraftItemEvent event) {
-        if (!event.isShiftClick())
-            return 1;
-        CraftingInventory crafting = event.getInventory();
-        int min = Integer.MAX_VALUE;
-        for (ItemStack item : crafting.getMatrix()) {
-            if (item == null || item.getType().isAir())
-                continue;
-            min = Math.min(min, item.getAmount());
-        }
-        return min == Integer.MAX_VALUE ? 1 : Math.max(1, min);
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)

@@ -10,6 +10,7 @@ import com.mdvcraft.mdvquest.hook.MythicMobsHook;
 import com.mdvcraft.mdvquest.hook.MythicItemsHook;
 import com.mdvcraft.mdvquest.hook.PlaceholderHook;
 import com.mdvcraft.mdvquest.listener.GameplayListener;
+import com.mdvcraft.mdvquest.listener.CraftingProgressListener;
 import com.mdvcraft.mdvquest.service.AccessService;
 import com.mdvcraft.mdvquest.service.ActionBarManager;
 import com.mdvcraft.mdvquest.service.DeliveryService;
@@ -105,6 +106,7 @@ public final class MDVQuestPlugin extends JavaPlugin {
 
             Bukkit.getPluginManager().registerEvents(
                     new GameplayListener(this, progressService, placedBlockService, mmoItemsHook), this);
+            Bukkit.getPluginManager().registerEvents(new CraftingProgressListener(this, progressService), this);
             Bukkit.getPluginManager().registerEvents(menuManager, this);
             Bukkit.getPluginManager().registerEvents(promptManager, this);
             Bukkit.getPluginManager().registerEvents(editorManager, this);

@@ -1,4 +1,12 @@
-# 1.4.5
+# 1.4.6
+
+- Corrige el progreso de `CRAFT_VANILLA_ITEM` al hacer shift-click con el inventario lleno o con espacio limitado.
+- Cuenta las operaciones confirmadas por los ingredientes consumidos, en vez del máximo teórico de la receta.
+- Valida cada clic antes de mover ingredientes, usar el libro de recetas o cerrar la mesa; no duplica progreso entre clics del mismo tick.
+- Respeta eventos cancelados, cantidades de salida y misiones que cuentan operaciones en lugar de objetos.
+- Sin cambios de configuración, misiones ni esquema SQLite.
+
+## 1.4.5
 
 - Añade Forms nativos de Floodgate para el visualizador de contratos aceptados.
 - Añade Form nativo para el NPC interactivo: aceptar, entregar, reclamar y cancelar.

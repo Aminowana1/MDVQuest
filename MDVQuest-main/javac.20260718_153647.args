@@ -1,7 +1,0 @@
--Xmaxerrs
-20
--proc:none
--d
-/tmp/javac-syntax
-src/main/java/com/mdvcraft/mdvquest/gui/QuestEditorManager.java
-src/main/java/com/mdvcraft/mdvquest/service/QuestYamlService.java

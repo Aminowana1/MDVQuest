@@ -1,4 +1,0 @@
--proc:none
--Xmaxerrs
-10000
-src/main/java/com/mdvcraft/mdvquest/gui/QuestEditorManager.java

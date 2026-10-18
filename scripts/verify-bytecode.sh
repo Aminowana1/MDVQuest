@@ -21,6 +21,7 @@ javap -classpath "$JAR" -verbose \
   com.mdvcraft.mdvquest.gui.QuestEditorManager \
   com.mdvcraft.mdvquest.hook.MDVSocialHook \
   com.mdvcraft.mdvquest.listener.GameplayListener \
+  com.mdvcraft.mdvquest.listener.CraftingProgressListener \
   com.mdvcraft.mdvquest.service.RewardService \
   com.mdvcraft.mdvquest.util.ItemUtil > "$DUMP"
 
