@@ -1,4 +1,11 @@
-# 1.4.6
+# 1.4.7
+
+- Combina la corrección del conteo de crafteos de la 1.4.6 con la eliminación del spam de consola de la versión aportada.
+- Elimina el mensaje de depuración `Displaying new progress action bar for ...` al mostrar progreso.
+- Conserva la barra de progreso del jugador y la validación de crafteos con inventario lleno o espacio limitado.
+- Sin cambios de configuración, misiones ni esquema SQLite.
+
+## 1.4.6
 
 - Corrige el progreso de `CRAFT_VANILLA_ITEM` al hacer shift-click con el inventario lleno o con espacio limitado.
 - Cuenta las operaciones confirmadas por los ingredientes consumidos, en vez del máximo teórico de la receta.

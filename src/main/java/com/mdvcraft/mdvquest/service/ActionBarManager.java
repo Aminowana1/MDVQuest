@@ -27,9 +27,6 @@ public class ActionBarManager {
     int durationSeconds = 2;
     int durationTicks = 20 * durationSeconds;
 
-    Bukkit.getConsoleSender().sendMessage(
-        "Displaying new progress action bar for " + player.displayName());
-
     if (!plugin.getConfig().getBoolean("performance.progress-actionbar", true))
       return;
 
